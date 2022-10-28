@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="testing" VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="824,1880.8" sap2010:WorkflowViewState.IdRef="testing_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:snm="clr-namespace:System.Net.Mail;assembly=System.Net.Mail" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="testing" VisualBasic.Settings="{x:Null}" sap:VirtualizedContainerService.HintSize="824,2384.8" sap2010:WorkflowViewState.IdRef="testing_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:snm="clr-namespace:System.Net.Mail;assembly=System.Net.Mail" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="40">
       <x:String>System.Activities</x:String>
@@ -93,7 +93,7 @@
       <AssemblyReference>System.Data.Common</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="testing" sap:VirtualizedContainerService.HintSize="694.4,1816" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="testing" sap:VirtualizedContainerService.HintSize="694.4,2320" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="scg:List(snm:MailMessage)" Name="mailObject" />
     </Sequence.Variables>
@@ -208,24 +208,26 @@
         </Sequence>
       </ui:CommentOut.Body>
     </ui:CommentOut>
-    <Sequence sap:VirtualizedContainerService.HintSize="651.2,1412.8" sap2010:WorkflowViewState.IdRef="Sequence_15">
+    <Sequence sap:VirtualizedContainerService.HintSize="651.2,1916.8" sap2010:WorkflowViewState.IdRef="Sequence_15">
       <sap:WorkflowViewStateService.ViewState>
         <scg:Dictionary x:TypeArguments="x:String, x:Object">
           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
         </scg:Dictionary>
       </sap:WorkflowViewStateService.ViewState>
-      <ui:ExcelApplicationScope Password="{x:Null}" DisplayName="Excel Application Scope" sap:VirtualizedContainerService.HintSize="588.8,1289.6" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_1" InstanceCachePeriod="3000" WorkbookPath="attachment\LapHar Regional 1_Thn 2022 Zona 4_PHE Ogan Komering_2022 Oktober 25.xlsx">
+      <ui:ExcelApplicationScope Password="{x:Null}" AutoSave="False" CreateNewFile="False" DisplayName="Excel Application Scope" sap:VirtualizedContainerService.HintSize="588.8,1793.6" sap2010:WorkflowViewState.IdRef="ExcelApplicationScope_1" InstanceCachePeriod="3000" Visible="False" WorkbookPath="attachment\LapHar Regional 1_Thn 2022 Zona 4_PHE Ogan Komering_2022 Oktober 27.xlsx">
         <ui:ExcelApplicationScope.Body>
           <ActivityAction x:TypeArguments="ui:WorkbookApplication">
             <ActivityAction.Argument>
               <DelegateInArgument x:TypeArguments="ui:WorkbookApplication" Name="ExcelWorkbookScope" />
             </ActivityAction.Argument>
-            <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="555.2,1170.4" sap2010:WorkflowViewState.IdRef="Sequence_16">
+            <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="555.2,1674.4" sap2010:WorkflowViewState.IdRef="Sequence_16">
               <Sequence.Variables>
                 <Variable x:TypeArguments="sd:DataTable" Name="DT_RESULT" />
                 <Variable x:TypeArguments="x:Int32" Name="index" />
                 <Variable x:TypeArguments="x:String" Name="datatables" />
                 <Variable x:TypeArguments="x:String" Name="outputdt" />
+                <Variable x:TypeArguments="x:String" Name="tanggal" />
+                <Variable x:TypeArguments="s:DateTime" Name="tanggalbener" />
               </Sequence.Variables>
               <sap:WorkflowViewStateService.ViewState>
                 <scg:Dictionary x:TypeArguments="x:String, x:Object">
@@ -240,6 +242,21 @@
                   </scg:Dictionary>
                 </sap:WorkflowViewStateService.ViewState>
               </ui:ExcelReadRange>
+              <ui:ExcelReadCell Cell="R2" DisplayName="Read Cell" sap:VirtualizedContainerService.HintSize="512,69.6" sap2010:WorkflowViewState.IdRef="ExcelReadCell_1" PreserveFormat="True" SheetName="ZONA4-OIL">
+                <ui:ExcelReadCell.Result>
+                  <OutArgument x:TypeArguments="x:String">[tanggal]</OutArgument>
+                </ui:ExcelReadCell.Result>
+              </ui:ExcelReadCell>
+              <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="512,102.4" sap2010:WorkflowViewState.IdRef="LogMessage_11" Level="Info" Message="[&quot;tanggal : &quot;+tanggal]" />
+              <Assign sap:VirtualizedContainerService.HintSize="512,69.6" sap2010:WorkflowViewState.IdRef="Assign_7">
+                <Assign.To>
+                  <OutArgument x:TypeArguments="s:DateTime">[tanggalbener]</OutArgument>
+                </Assign.To>
+                <Assign.Value>
+                  <InArgument x:TypeArguments="s:DateTime">[Datetime.ParseExact(tanggal,"dd-MMM-yy",System.Globalization.CultureInfo.InvariantCulture)]</InArgument>
+                </Assign.Value>
+              </Assign>
+              <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="512,102.4" sap2010:WorkflowViewState.IdRef="LogMessage_12" Level="Info" Message="[&quot;tanggalbener : &quot;+tanggalbener.ToString]" />
               <ui:OutputDataTable DataTable="[DT_RESULT]" DisplayName="Output Data Table" sap:VirtualizedContainerService.HintSize="512,90.4" sap2010:WorkflowViewState.IdRef="OutputDataTable_2" Text="[outputdt]" />
               <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="512,102.4" sap2010:WorkflowViewState.IdRef="LogMessage_10" Level="Info" Message="[outputdt]" />
               <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[DT_RESULT]" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="512,696.8" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
@@ -254,7 +271,7 @@
                           <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
-                      <ui:InterruptibleWhile CurrentIndex="{x:Null}" DisplayName="While" sap:VirtualizedContainerService.HintSize="435.2,480" sap2010:WorkflowViewState.IdRef="InterruptibleWhile_2">
+                      <ui:InterruptibleWhile CurrentIndex="{x:Null}" Condition="[index &lt;16]" DisplayName="While" sap:VirtualizedContainerService.HintSize="435.2,480" sap2010:WorkflowViewState.IdRef="InterruptibleWhile_2">
                         <ui:InterruptibleWhile.Body>
                           <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="400,303.2" sap2010:WorkflowViewState.IdRef="Sequence_18">
                             <sap:WorkflowViewStateService.ViewState>
@@ -273,9 +290,6 @@
                             </Assign>
                           </Sequence>
                         </ui:InterruptibleWhile.Body>
-                        <ui:InterruptibleWhile.Condition>
-                          <VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="index &lt;16" />
-                        </ui:InterruptibleWhile.Condition>
                       </ui:InterruptibleWhile>
                     </Sequence>
                   </ActivityAction>

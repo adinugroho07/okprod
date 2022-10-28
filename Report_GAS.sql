@@ -23,7 +23,8 @@ CREATE TABLE [dbo].[Report_GAS](
 	[REMARKS] [varchar](400) NULL,
 	[EXECUTEDATE] [date] NULL,
 	[MONTH] [varchar](50) NULL,
-	[YEAR] [varchar](50) NULL
+	[YEAR] [varchar](50) NULL,
+	[PROD_DATE] [date] NULL
 ) ON [PRIMARY]
 GO
 
